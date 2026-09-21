@@ -1,0 +1,47 @@
+대한염수분사 홈페이지 - GitHub Pages 등록 안내
+
+[중요]
+- 이 ZIP 파일 자체를 저장소에 올리지 말고, 먼저 압축을 풉니다.
+- 압축을 푼 뒤 index.html, assets 폴더, .nojekyll 파일을 저장소 최상위에 올립니다.
+- index.html과 assets 폴더의 상대 위치를 바꾸지 마세요.
+
+1. GitHub에서 새 저장소 만들기
+- https://github.com/new 에 접속합니다.
+- Repository name에 원하는 영문 이름을 입력합니다. 예: daehan-brine
+- Public을 선택한 뒤 Create repository를 누릅니다.
+
+2. 홈페이지 파일 올리기
+- 저장소 화면에서 Add file > Upload files를 누릅니다.
+- 이 ZIP의 압축을 푼 폴더 안에 있는 모든 파일과 assets 폴더를 끌어다 놓습니다.
+- Commit changes를 눌러 업로드를 완료합니다.
+
+3. GitHub Pages 켜기
+- 저장소의 Settings > Pages로 이동합니다.
+- Build and deployment의 Source를 Deploy from a branch로 선택합니다.
+- Branch에서 main, 폴더에서 /(root)를 선택하고 Save를 누릅니다.
+- 게시 완료까지 보통 몇 분 정도 걸릴 수 있습니다.
+
+4. 홈페이지 주소 확인하기
+- 저장소가 daehan-brine이라면 주소는 보통 아래와 같습니다.
+  https://GitHub사용자이름.github.io/daehan-brine/
+- Settings > Pages 화면에도 실제 게시 주소가 표시됩니다.
+
+5. 게시 후 확인하기
+- PC와 모바일에서 첫 화면과 메뉴를 확인합니다.
+- 사진과 설치 동영상이 정상적으로 보이는지 확인합니다.
+- 전화 상담 버튼을 눌러 033-830-7001로 연결되는지 확인합니다.
+
+[개인 도메인을 연결할 경우]
+- Settings > Pages > Custom domain에 사용할 도메인을 입력합니다.
+- 도메인 업체의 DNS 설정도 함께 변경해야 합니다.
+- 도메인이 확정되기 전에는 CNAME 파일을 임의로 추가하지 마세요.
+
+[파일 구성]
+- index.html: 홈페이지 본문
+- assets/css/style.css: 디자인
+- assets/js/main.js: 화면 동작
+- assets/images: 이미지
+- assets/videos: 동영상
+- .nojekyll: GitHub Pages 정적 파일 설정
+
+이 홈페이지는 PHP나 데이터베이스 없이 작동하는 정적 홈페이지입니다.
