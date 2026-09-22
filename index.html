@@ -3,17 +3,429 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="(주)대한염수분사 - 수동 및 원격제어형 염수분사장치, 도로 제설·결빙 예방 솔루션" name="description"/>
 <title>(주)대한염수분사 | 염수분사장치</title>
-<link rel="stylesheet" href="assets/css/style.css"/>
+<style>
+:root {
+  --navy:#082b49; --navy2:#0d3e67; --blue:#0875bd; --sky:#e9f5fc;
+  --text:#213547; --muted:#697d8d; --line:#dbe7ef; --soft:#f6fafc; --white:#fff;
+  --shadow:0 18px 50px rgba(5,38,63,.12); --radius:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;color:var(--text);line-height:1.7;word-break:keep-all;background:#fff}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(219,231,239,.9)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.logo{display:flex;align-items:center;gap:12px;min-height:44px}
+.logo img{display:block;height:44px;width:auto;max-width:220px;border-radius:2px}
+.logo .company-name{font-size:20px;font-weight:950;letter-spacing:-.6px;color:var(--navy);white-space:nowrap}
+.logo span{color:var(--blue)}
+.menu{display:flex;gap:25px;font-size:14px;font-weight:800;color:#496274}
+.menu a:hover{color:var(--blue)}
+.phone{padding:10px 16px;background:var(--navy);color:#fff;border-radius:999px;font-weight:900;font-size:13px}
+
+.hero{min-height:720px;position:relative;display:flex;align-items:center;background-image:linear-gradient(90deg,rgba(4,27,46,.84) 0%,rgba(4,27,46,.67) 45%,rgba(4,27,46,.18) 75%),url("assets/embedded/bb1085a1a9870646.png");background-size:cover;background-position:center}
+.hero-content{position:relative;z-index:2;max-width:760px;color:#fff;padding:100px 0}
+.kicker{font-size:13px;font-weight:950;letter-spacing:.18em;color:#8ed8ff}
+.hero h1{font-size:clamp(42px,6vw,72px);line-height:1.08;letter-spacing:-2.5px;margin:13px 0 20px}
+.hero p{font-size:19px;color:#dce9f1;max-width:680px;margin:0 0 32px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:10px;font-weight:900}
+.btn.primary{background:#0c83cc;color:white}
+.btn.ghost{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);color:#fff;backdrop-filter:blur(6px)}
+.hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:34px}
+.hero-tags span{padding:7px 11px;border:1px solid rgba(255,255,255,.3);border-radius:999px;font-size:12px;color:#e8f3f9;background:rgba(7,42,69,.25)}
+
+section{padding:92px 0}
+.section-head{max-width:820px;margin-bottom:40px}
+.section-head.center{text-align:center;margin-left:auto;margin-right:auto}
+.label{color:var(--blue);font-size:13px;font-weight:950;letter-spacing:.12em}
+h2{font-size:clamp(31px,4vw,46px);line-height:1.2;color:var(--navy);letter-spacing:-1.5px;margin:8px 0 13px}
+.section-head p{color:var(--muted);font-size:17px;margin:0}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.photo-panel{border-radius:24px;overflow:hidden;box-shadow:var(--shadow);min-height:460px}
+.photo-panel img{width:100%;height:100%;min-height:460px;object-fit:cover}
+.about-copy p{color:#566d7e;margin:0 0 17px}
+.fact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}
+.fact{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:18px}
+.fact b{display:block;color:var(--blue);font-size:20px}
+.fact span{font-size:13px;color:#667b8b}
+.note{font-size:13px;background:#eef8fd;border-left:4px solid var(--blue);padding:13px 15px;margin-top:18px;color:#5e7484}
+.season-card{height:100%;border:1px solid var(--line);border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 12px 35px rgba(8,54,85,.08)}
+.season-card .photo-panel{height:270px;min-height:270px;border-radius:0;box-shadow:none}
+.season-card .photo-panel img{height:270px;min-height:270px}
+.season-card .about-copy{padding:28px 28px 30px}
+.season-tag{display:inline-block;margin-bottom:10px;padding:6px 11px;border-radius:999px;background:#e5f5fd;color:var(--blue);font-size:12px;font-weight:950;letter-spacing:.08em}
+.season-card h3{margin:0 0 16px;color:var(--navy);font-size:27px;line-height:1.3}
+.season-slogan{padding:15px 17px;border-radius:14px;background:linear-gradient(135deg,#0b6fae,#15a4c7);color:#fff;font-weight:900;line-height:1.5;margin-bottom:18px}
+.summer-uses{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid #e8eff3}
+.summer-uses li{padding:13px 0;border-bottom:1px solid #e8eff3}
+.summer-uses b{display:block;color:var(--navy);font-size:15px;margin-bottom:3px}
+.summer-uses span{display:block;color:#627788;font-size:13px;line-height:1.55}
+.season-card .fact-row{gap:9px}
+.season-card .fact{padding:14px 12px}
+.season-card .fact b{font-size:16px;word-break:keep-all}
+.summer-card .note{background:#f0fbf8;border-left-color:#17a07d}
+
+.product-bg{background:var(--soft)}
+.product-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.product-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 12px 35px rgba(8,54,85,.07)}
+.product-photo{height:280px;overflow:hidden;background:#f3f6f8}
+.product-photo img{width:100%;height:100%;object-fit:contain;object-position:center}
+.product-body{padding:30px}
+.badge{display:inline-block;font-size:12px;font-weight:950;padding:6px 11px;border-radius:999px;background:var(--sky);color:var(--blue)}
+.product-card h3{font-size:27px;line-height:1.3;color:var(--navy);margin:13px 0 11px}
+.product-card p{color:#627788;margin:0 0 18px}
+.checks{list-style:none;margin:0;padding:0}
+.checks li{position:relative;padding:9px 0 9px 26px;border-top:1px solid #edf2f5;color:#496172}
+.checks li:before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:950}
+
+.feature-section{background:linear-gradient(135deg,#07263f,#0c416b);color:white}
+.feature-section h2{color:white}
+.feature-section .section-head p{color:#c4d7e4}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.feature{padding:24px;border-radius:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.feature .num{font-size:13px;color:#7fd3ff;font-weight:950}
+.feature h4{margin:8px 0 8px;font-size:18px}
+.feature p{margin:0;color:#c4d5df;font-size:14px}
+
+.app-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.app-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 26px rgba(8,55,85,.07)}
+.app-photo{height:240px;overflow:hidden;background:#eef4f8;display:flex;align-items:center;justify-content:center}
+.app-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;background:#eef4f8}
+.app-body{padding:16px 16px 18px}
+.app-body strong{display:inline-block;font-size:13px;color:#fff;background:var(--blue);padding:5px 9px;border-radius:999px;margin-bottom:10px}
+.app-body span{display:block;font-size:20px;font-weight:900;color:var(--navy);line-height:1.25}
+.app-body small{display:block;margin-top:5px;color:#6b7f8e;font-size:13px}
+
+.gallery-section{background:#f3f8fb}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gallery-card{position:relative;border:0;padding:0;background:#ddd;border-radius:15px;overflow:hidden;cursor:pointer;min-height:230px;text-align:left}
+.gallery-card img{width:100%;height:100%;min-height:230px;object-fit:cover;transition:transform .3s}
+.gallery-card:hover img{transform:scale(1.025)}
+.gallery-caption{position:absolute;left:0;right:0;bottom:0;padding:34px 17px 14px;background:linear-gradient(transparent,rgba(4,27,46,.82));color:#fff}
+.gallery-caption b{display:block;font-size:15px}
+.gallery-caption small{display:block;color:#dce8ef;font-size:12px;margin-top:2px}
+
+.clients{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.client{min-height:108px;padding:20px 23px;border:1px solid var(--line);border-radius:15px;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:6px}
+.client small{display:block;color:var(--blue);font-size:13px;line-height:1.2;font-weight:950}
+.client b{display:block;color:var(--navy);font-size:clamp(16px,1.55vw,20px);line-height:1.35;word-break:keep-all}
+
+.contact{padding:78px 0}
+.contact-box{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;background:linear-gradient(135deg,#0b375d,#0a6ca6);border-radius:25px;padding:42px;color:#fff}
+.contact-box h2{color:#fff;margin-top:0}
+.contact-box p{color:#d7e9f3}
+.contact-info{padding:25px;border:1px solid rgba(255,255,255,.2);border-radius:18px;background:rgba(255,255,255,.09)}
+.contact-info div{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.13)}
+.contact-info div:last-child{border-bottom:0}
+.contact-info b{display:block;color:#9ddfff;font-size:12px}
+
+footer{padding:33px 0;background:#061c2d;color:#91aab9;font-size:13px}
+.footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer strong{color:#fff}
+
+.lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(3,17,29,.94);padding:30px;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lightbox-inner{max-width:1100px;width:100%;position:relative}
+.lightbox img{max-height:82vh;width:100%;object-fit:contain;border-radius:12px}
+.lightbox-title{color:#fff;text-align:center;margin-top:12px;font-weight:800}
+.lightbox-close{position:absolute;right:-6px;top:-44px;border:0;background:transparent;color:white;font-size:34px;cursor:pointer}
+
+@media(max-width:950px){
+ .menu{display:none} .about-grid,.product-grid,.contact-box{grid-template-columns:1fr}
+ .features{grid-template-columns:repeat(2,1fr)} .app-grid{grid-template-columns:repeat(3,1fr)}
+ .gallery{grid-template-columns:repeat(2,1fr)} .gallery-card:nth-child(n){grid-column:span 1}
+ .clients{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+ .wrap{width:min(100% - 28px,1180px)} .nav{height:66px} .logo img{height:34px;max-width:170px} .logo .company-name{font-size:15px} .logo{gap:8px} .phone{font-size:12px;padding:8px 11px}
+ .hero{min-height:650px;background-position:60% center} .hero-content{padding:80px 0}
+ section{padding:70px 0} .fact-row,.features,.clients{grid-template-columns:1fr}
+ .app-grid{grid-template-columns:repeat(2,1fr)} .gallery{grid-template-columns:1fr}
+ .photo-panel,.photo-panel img{min-height:350px} .season-card .photo-panel,.season-card .photo-panel img{height:240px;min-height:240px} .season-card .about-copy{padding:24px 21px 26px} .contact-box{padding:27px}
+}
+
+.system-section{background:#fff}
+.system-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
+.system-card{border:1px solid var(--line);border-radius:22px;background:#fff;overflow:hidden;box-shadow:0 12px 35px rgba(8,54,85,.07)}
+.system-image{height:390px;background:linear-gradient(135deg,#f9fcfe,#edf5f9);display:flex;align-items:center;justify-content:center;padding:24px}
+.system-image img{width:100%;height:100%;object-fit:contain}
+.system-copy{padding:28px 30px 30px}
+.system-copy h3{margin:10px 0 10px;color:var(--navy);font-size:25px;line-height:1.3}
+.system-copy p{margin:0;color:#617687}
+.system-points{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.system-point{padding:15px 14px;border-radius:13px;background:var(--soft);border:1px solid var(--line);font-size:13px;color:#536b7c}
+.system-point b{display:block;color:var(--blue);font-size:14px;margin-bottom:3px}
+.system-card.machine-room{margin-top:0;display:flex;flex-direction:column}
+.system-card.machine-room .system-copy{flex:1}
+.machine-room-images{display:grid;grid-template-columns:1fr 1fr;gap:10px;height:390px;padding:18px;background:linear-gradient(135deg,#f9fcfe,#edf5f9)}
+.machine-room-images img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+.product-equipment{background:#f4f8fb}
+.product-equipment .system-card{max-width:1100px;margin:0 auto}
+.procurement-title{margin:24px 0 10px;padding-left:13px;border-left:4px solid var(--blue);color:var(--navy);font-size:19px;line-height:1.35}
+.product-spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:10px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.product-spec div{display:grid;grid-template-columns:125px 1fr;min-height:48px;border-bottom:1px solid var(--line)}
+.product-spec div:nth-last-child(-n+2){border-bottom:0}
+.product-spec div:nth-child(odd){border-right:1px solid var(--line)}
+.product-spec dt,.product-spec dd{margin:0;padding:13px 15px;display:flex;align-items:center}
+.product-spec dt{font-weight:800;color:var(--navy);background:var(--soft)}
+.product-spec dd{color:#536b7c;font-weight:700}
+.system-note{margin-top:20px;padding:13px 15px;border-radius:12px;background:#f5f9fc;color:#667b8b;font-size:13px;border:1px solid var(--line)}
+@media(max-width:950px){.system-grid{grid-template-columns:1fr}.system-image{height:340px}.system-points{grid-template-columns:1fr}.machine-room-images{height:340px}.machine-room-images img{height:100%}}
+@media(max-width:700px){.product-spec{grid-template-columns:1fr}.product-spec div,.product-spec div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}.product-spec div:last-child{border-bottom:0}.product-spec div:nth-child(odd){border-right:0}.product-spec div{grid-template-columns:115px 1fr}}
+
+.app-photo{position:relative}
+.reference-badge{
+  position:absolute;left:12px;top:12px;
+  background:rgba(7,43,73,.82);color:#fff;
+  padding:5px 9px;border-radius:999px;
+  font-size:11px;font-weight:900;backdrop-filter:blur(4px)
+}
+.app-body em{
+  display:block;margin-top:8px;
+  font-style:normal;font-size:11px;color:#90a1ad
+}
+
+@media(max-width:650px){
+  .app-photo{height:220px}
+}
+
+/* Remote control operation / application section */
+.remote-info{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 86% 10%, rgba(28,143,207,.18), transparent 28%),
+    linear-gradient(135deg,#f4f9fc 0%,#ffffff 55%,#eef7fc 100%);
+}
+.remote-info:before{
+  content:"";
+  position:absolute;left:0;top:0;bottom:0;width:6px;
+  background:linear-gradient(#0b78ba,#063b66);
+}
+.remote-intro{
+  display:grid;
+  grid-template-columns:.78fr 1.22fr;
+  gap:22px;
+  align-items:stretch;
+  margin-bottom:22px;
+}
+.remote-highlight{
+  border-radius:22px;
+  padding:34px;
+  color:#fff;
+  background:linear-gradient(145deg,#082f51,#0a6094);
+  box-shadow:0 18px 45px rgba(7,49,81,.16);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:300px;
+}
+.remote-highlight .mini{
+  color:#9ddfff;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.12em;
+}
+.remote-highlight h3{
+  font-size:29px;
+  line-height:1.3;
+  margin:12px 0 14px;
+  letter-spacing:-1px;
+}
+.remote-highlight p{
+  margin:0;
+  color:#d8e8f2;
+  font-size:15px;
+}
+.remote-highlight .en{
+  display:block;
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.18);
+  color:#8fd8ff;
+  font-size:12px;
+  line-height:1.55;
+}
+.remote-overview{
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:#fff;
+  padding:31px 32px;
+  box-shadow:0 12px 32px rgba(8,54,85,.06);
+}
+.remote-overview h3{
+  margin:0 0 12px;
+  color:var(--navy);
+  font-size:23px;
+}
+.remote-overview p{
+  margin:0;
+  color:#536a7b;
+  font-size:16px;
+}
+.remote-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:18px;
+}
+.info-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  padding:27px;
+  box-shadow:0 9px 25px rgba(8,54,85,.05);
+}
+.info-card .icon-no{
+  width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:12px;
+  background:#e8f5fc;
+  color:var(--blue);
+  font-weight:950;
+  margin-bottom:13px;
+}
+.info-card h4{
+  margin:0 0 12px;
+  color:var(--navy);
+  font-size:20px;
+}
+.info-list{
+  list-style:none;
+  padding:0;margin:0;
+}
+.info-list li{
+  position:relative;
+  padding:8px 0 8px 20px;
+  color:#566c7c;
+  font-size:14px;
+  border-bottom:1px solid #edf3f6;
+}
+.info-list li:last-child{border-bottom:0}
+.info-list li:before{
+  content:"";
+  position:absolute;
+  left:1px;top:17px;
+  width:7px;height:7px;
+  border-radius:50%;
+  background:#0b80c2;
+}
+.procon-grid{
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  gap:18px;
+  margin-top:18px;
+}
+.pro-box,.con-box{
+  border-radius:18px;
+  padding:27px;
+}
+.pro-box{
+  background:linear-gradient(135deg,#082f51,#0b5f92);
+  color:#fff;
+}
+.con-box{
+  background:#fff7f2;
+  border:1px solid #f0d9c8;
+}
+.pro-box h4,.con-box h4{
+  margin:0 0 13px;
+  font-size:20px;
+}
+.pro-box h4{color:#fff}
+.con-box h4{color:#8c4a24}
+.pro-box .info-list li{
+  color:#dce9f1;
+  border-bottom-color:rgba(255,255,255,.12);
+}
+.pro-box .info-list li:before{background:#79d4ff}
+.con-box .info-list li{
+  color:#6e5c50;
+  border-bottom-color:#efdfd4;
+}
+.con-box .info-list li:before{background:#d47a43}
+.notice-chip{
+  display:inline-flex;
+  margin-top:13px;
+  padding:8px 11px;
+  border-radius:9px;
+  background:#fff;
+  color:#8c4a24;
+  font-size:12px;
+  font-weight:850;
+  border:1px solid #ebd3c2;
+}
+@media(max-width:950px){
+  .remote-intro,.remote-grid,.procon-grid{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  .remote-highlight,.remote-overview,.info-card,.pro-box,.con-box{padding:22px}
+  .remote-highlight h3{font-size:25px}
+}
+
+
+.case-video-wrap{
+  margin:28px 0 30px;
+}
+.case-video-box{
+  overflow:hidden;
+  border-radius:24px;
+  background:#061e2f;
+  box-shadow:0 18px 40px rgba(5,34,54,.14);
+}
+.case-video-box video{
+  display:block;
+  width:100%;
+  height:auto;
+  background:#000;
+}
+.case-video-note{
+  margin-top:12px;
+  color:#5b7181;
+  font-size:14px;
+  line-height:1.7;
+}
+
+
+
+/* 여름철 스마트 자동 살수 현장 사진 3장 */
+.season-card .summer-gallery{
+  height:330px;min-height:330px;
+  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.65fr 1fr;
+  gap:3px;background:#dbe7ed
+}
+.season-card .summer-gallery figure{margin:0;min-width:0;min-height:0;overflow:hidden}
+.season-card .summer-gallery figure:first-child{grid-column:1/-1}
+.season-card .summer-gallery img{
+  display:block;width:100%;height:100%;min-height:0;object-fit:cover
+}
+.season-card .summer-gallery .summer-photo-wide img{object-position:center 58%}
+.season-card .summer-gallery .summer-photo-road img{object-position:center 75%}
+.season-card .summer-gallery .summer-photo-spray img{object-position:center 56%}
+@media(max-width:650px){
+  .season-card .summer-gallery{height:280px;min-height:280px;grid-template-rows:1.55fr 1fr}
+  .season-card .summer-gallery img{height:100%;min-height:0}
+}
+
+</style>
 </head>
 <body>
-<!-- GitHub Pages 호스팅용 정적 홈페이지 -->
+<!-- ==========================================================
+     ★ 단일 HTML 파일 버전
+     CSS / 로고 / 주요 제품사진 / 저장탱크 / 설치사례 / 설치영상이
+     이 index.html 한 파일 안에 포함되어 있습니다.
+     ========================================================== -->
 <header>
 <div class="wrap nav">
-<a aria-label="대한염수분사 홈" class="logo" href="#top"><img alt="DHBS 로고" src="assets/images/logo-dhbs.png"/><span class="company-name">(주)대한염수분사</span></a>
+<a aria-label="대한염수분사 홈" class="logo" href="#top"><img alt="DHBS 로고" src="assets/embedded/27c23d6efb60cd68.png"/><span class="company-name">(주)대한염수분사</span></a>
 <nav class="menu">
 <a href="#about">염수분사장치</a>
 <a href="#products">제품소개</a>
@@ -50,10 +462,10 @@
 </div>
 <div class="about-grid">
 <article class="season-card winter-card">
-<div class="photo-panel"><img alt="눈이 쌓인 결빙 취약 곡선 도로" src="assets/images/about-winter-road.jpg"/></div>
+<div class="photo-panel"><img alt="눈이 쌓인 결빙 취약 곡선 도로" src="assets/embedded/a827fd1d304d3803.jpg"/></div>
 <div class="about-copy">
 <div class="season-tag">WINTER DE-ICING</div>
-<h3>겨울철 스마트 원격 염수분사</h3>
+<h3>원격제어 염수분사</h3>
 <div class="season-slogan">겨울에는 원격 염수분사, 여름에는 스마트 원격 살수<br/>하나의 시스템으로 사계절 활용이 가능합니다.</div>
 <p>겨울철에는 액상 제설제를 도로에 원격 분사하여 강설 초기 대응, 노면 결빙 예방 및 재결빙 억제에 활용할 수 있습니다.</p>
 <ol class="summer-uses winter-uses">
@@ -72,10 +484,10 @@
 </div>
 </article>
 <article class="season-card summer-card">
-<div class="photo-panel"><img alt="여름철 도로 노면 원격 살수" loading="lazy" src="assets/images/about-summer-spray.jpg"/></div>
+<div class="photo-panel"><img alt="여름철 도로 노면 원격 살수" loading="lazy" src="assets/embedded/f3c43826df227f09.jpg"/></div>
 <div class="about-copy">
 <div class="season-tag">SUMMER WATER SPRAY</div>
-<h3>클린로드 시스템</h3>
+<h3>클린로드 시스템 &lt;하절기 여름철 사용&gt;</h3>
 <div class="season-slogan">겨울에는 원격 염수분사, 여름에는 스마트 원격 살수<br/>하나의 시스템으로 사계절 활용이 가능합니다.</div>
 <p>여름철에는 물을 이용하여 노면 온도 저감, 비산먼지 억제 및 도로 세척에 활용할 수 있습니다.</p>
 <ol class="summer-uses">
@@ -93,6 +505,7 @@
 <div class="note">※ 겨울철 염화칼슘 계통을 여름철 물 살수용으로 전환할 때는 탱크·배관·펌프를 충분히 세척한 뒤 사용해야 합니다. 실제 효과는 기온, 노면 및 현장 조건에 따라 달라질 수 있습니다.</div>
 </div>
 </article>
+
 </div>
 </div>
 </section>
@@ -106,10 +519,10 @@
 </div>
 <div class="product-grid">
 <article class="product-card">
-<div class="product-photo"><img alt="염수분사장치 설비 외함" src="assets/images/product-remote-control.jpg"/></div>
+<div class="product-photo"><img alt="염수분사장치 설비 외함" src="assets/embedded/21cdf43b50aec64f.jpg"/></div>
 <div class="product-body">
 <span class="badge">REMOTE CONTROL</span>
-<h3>원격 제어형 염수분사장치</h3>
+<h3>원격제어 염수분사 장치</h3>
 <p>PC와 모바일을 통해 장치를 제어하고 장비 상태와 현장을 실시간으로 확인할 수 있는 제설 시스템입니다.</p>
 <ul class="checks">
 <li>PC · 모바일 원격 제어</li>
@@ -120,10 +533,10 @@
 </ul>
 </div>
 </article><article class="product-card">
-<div class="product-photo"><img alt="수동 제어형 염수분사 시스템 저장탱크 설치 사진" src="assets/images/product-semi-automatic.jpg"/></div>
+<div class="product-photo"><img alt="수동 제어형 염수분사 시스템 저장탱크 설치 사진" src="assets/embedded/7039bad87fb1d6c5.jpg"/></div>
 <div class="product-body">
 <span class="badge">SEMI-AUTOMATIC</span>
-<h3>수동 제어형 염수분사 시스템</h3>
+<h3>수동제어 염수분사장치</h3>
 <p>사용자가 분사 시간을 설정하고 시작 버튼을 누르면 설정 시간 동안 자동으로 제설제를 살포한 뒤 정지합니다.</p>
 <ul class="checks">
 <li>버튼 한 번으로 간편한 운전</li>
@@ -216,25 +629,28 @@
 <div class="section-head center">
 <div class="label">SYSTEM COMPONENTS</div>
 <h2>염수분사장치 주요 구성</h2>
-<p>저장탱크, 제어·펌프 장치, 배관과 분사노즐을 현장 조건에 맞춰 구성하여 안정적인 제설제 공급과 살포를 지원합니다.</p>
+<p>저장탱크와 기계실 하우스를 현장 조건에 맞춰 구성하여 안정적인 제설제 보관과 설비 운전을 지원합니다.</p>
 </div>
 <div class="system-grid">
-<article class="system-card">
-<div class="system-image"><img alt="제어·펌프 일체형 장치 신규 구성 이미지" src="assets/images/component-control-pump.png"/></div>
+<article class="system-card machine-room">
+<div class="machine-room-images">
+<img alt="염수분사장치 기계실 하우스 내부 제어반과 펌프 설비" loading="lazy" src="assets/embedded/09bd22ad5d7c6ff1.jpg"/>
+<img alt="염수분사장치 기계실 하우스 내부 저장탱크와 입형 펌프 설비" loading="lazy" src="assets/embedded/5f95bcffe3088fc1.jpg"/>
+</div>
 <div class="system-copy">
-<span class="badge">CONTROL &amp; PUMP UNIT</span>
-<h3>제어·펌프 일체형 장치</h3>
-<p>제설제 공급과 분사 운전을 위한 제어부 및 펌프 장치 구성 예시입니다. 현장 운용 방식에 따라 반자동 또는 원격 제어 기능을 적용할 수 있습니다.</p>
+<span class="badge">MACHINE ROOM HOUSING</span>
+<h3>기계실 &lt;하우스&gt;</h3>
+<p>제어반, 펌프, 밸브 및 배관 설비를 외부 환경으로부터 보호하고 안정적으로 운전할 수 있도록 구성한 기계실 하우스입니다. 현장 조건과 장비 사양에 따라 내부 배치와 크기를 맞춤 설계합니다.</p>
 <div class="system-points">
-<div class="system-point"><b>제어부</b>운전 및 분사시간 제어</div>
-<div class="system-point"><b>펌프부</b>배관으로 제설제 공급</div>
-<div class="system-point"><b>확장 구성</b>원격제어·모니터링 적용</div>
+<div class="system-point"><b>설비 보호</b>제어·펌프 장비 보호</div>
+<div class="system-point"><b>통합 구성</b>배관·밸브·제어반 수용</div>
+<div class="system-point"><b>맞춤 설계</b>현장 여건별 크기 적용</div>
 </div>
 </div>
 </article>
 <article class="system-card">
 <div class="system-image">
-<img alt="액상 제설제 저장탱크 이미지" src="assets/images/component-solution-tank.png"/>
+<img alt="액상 제설제 저장탱크 이미지" src="assets/embedded/0c7a859c1c0accdd.png"/>
 </div>
 <div class="system-copy">
 <span class="badge">SOLUTION TANK</span>
@@ -278,7 +694,7 @@
 <div class="app-grid">
 <div class="app-card">
 <div class="app-photo">
-<img alt="교량 적용 예시 그림" loading="lazy" src="assets/images/application-bridge.webp"/>
+<img alt="교량 적용 예시 그림" loading="lazy" src="assets/embedded/2a7575eb727ff99f.webp"/>
 <span class="reference-badge">적용 예시</span>
 </div>
 <div class="app-body">
@@ -290,7 +706,7 @@
 </div>
 <div class="app-card">
 <div class="app-photo">
-<img alt="터널 적용 예시 그림" loading="lazy" src="assets/images/application-tunnel.webp"/>
+<img alt="터널 적용 예시 그림" loading="lazy" src="assets/embedded/27113eef82d4514e.webp"/>
 <span class="reference-badge">적용 예시</span>
 </div>
 <div class="app-body">
@@ -302,7 +718,7 @@
 </div>
 <div class="app-card">
 <div class="app-photo">
-<img alt="급경사 도로 적용 예시 그림" loading="lazy" src="assets/images/application-steep-road.webp"/>
+<img alt="급경사 도로 적용 예시 그림" loading="lazy" src="assets/embedded/2bdb34e021cb018b.webp"/>
 <span class="reference-badge">적용 예시</span>
 </div>
 <div class="app-body">
@@ -314,7 +730,7 @@
 </div>
 <div class="app-card">
 <div class="app-photo">
-<img alt="물류센터 적용 예시 그림" loading="lazy" src="assets/images/application-logistics-center.webp"/>
+<img alt="물류센터 적용 예시 그림" loading="lazy" src="assets/embedded/4369bf5c884b3c46.webp"/>
 <span class="reference-badge">적용 예시</span>
 </div>
 <div class="app-body">
@@ -326,7 +742,7 @@
 </div>
 <div class="app-card">
 <div class="app-photo">
-<img alt="산업단지 적용 예시 그림" loading="lazy" src="assets/images/application-industrial-complex.webp"/>
+<img alt="산업단지 적용 예시 그림" loading="lazy" src="assets/embedded/0fa7372ef3259060.webp"/>
 <span class="reference-badge">적용 예시</span>
 </div>
 <div class="app-body">
@@ -338,7 +754,7 @@
 </div>
 <div class="app-card">
 <div class="app-photo">
-<img alt="공장 램프 적용 예시 그림" loading="lazy" src="assets/images/application-factory-ramp.webp"/>
+<img alt="공장 램프 적용 예시 그림" loading="lazy" src="assets/embedded/d900d8acb818a4f5.webp"/>
 <span class="reference-badge">적용 예시</span>
 </div>
 <div class="app-body">
@@ -351,7 +767,37 @@
 </div>
 </div>
 </section>
-<!-- [사진 수정] 설치사례 -->
+<!-- [카드 이동] 대한염수분사 제품 -->
+<section class="product-equipment" id="product-equipment">
+<div class="wrap">
+<div class="section-head center">
+<div class="label">DAEHAN BRINE SPRAY PRODUCT</div>
+<h2>대한염수분사 제품</h2>
+<p>현장 운전과 제설제 공급을 위한 주요 장비 구성을 소개합니다.</p>
+</div>
+<article class="system-card">
+<div class="system-image"><img alt="제어·펌프 일체형 장치 신규 구성 이미지" src="assets/embedded/bbbc75884f504d0d.png"/></div>
+<div class="system-copy">
+<span class="badge">CONTROL &amp; PUMP UNIT</span>
+<h3>제어·펌프 일체형 장치 용량 2Ton &lt;원하는 장소에 설치가능&gt;</h3>
+<p>제설제 공급과 분사 운전을 위한 제어부 및 펌프 장치 구성 예시입니다. 현장 운용 방식에 따라 반자동 또는 원격 제어 기능을 적용할 수 있습니다.</p>
+<div class="system-points">
+<div class="system-point"><b>제어부</b>PC, 스마트폰 제어 가능, 기동시간(분/초) 조정 가능</div>
+<div class="system-point"><b>펌프부</b>주배관 및 분사노즐 제설제 공급</div>
+<div class="system-point"><b>확장 구성</b>원격제어, PC 및 스마트폰 모니터링 적용(제설 이력 저장), CCTV 실시간 확인 가능</div>
+</div>
+<h4 class="procurement-title">조달청 나라장터 등록</h4>
+<dl class="product-spec" aria-label="조달청 나라장터 제품 등록 정보">
+<div><dt>물품목록번호</dt><dd>25174892-26451230</dd></div>
+<div><dt>모델명</dt><dd>DHBS-2.5</dd></div>
+<div><dt>세부품명</dt><dd>모래살포기</dd></div>
+<div><dt>제조업체명</dt><dd>대한염수분사</dd></div>
+</dl>
+</div>
+</article>
+</div>
+</section>
+<!-- [사진/영상 수정] 설치사례 -->
 <section class="gallery-section" id="cases">
 <div class="wrap">
 <div class="section-head">
@@ -361,56 +807,56 @@
 </div>
 <div class="gallery">
 <button aria-label="옹벽 구간 배관 설치 크게 보기" class="gallery-card" onclick="openLightbox(0)">
-<img alt="옹벽 구간 배관 설치" loading="lazy" src="assets/images/case-01-retaining-wall.jpg"/>
+<img alt="옹벽 구간 배관 설치" loading="lazy" src="assets/embedded/c1640a0f26bcf3c5.jpg"/>
 <span class="gallery-caption"><b>옹벽 구간 배관 설치</b><small>옹벽과 결빙 취약 구간에 배관을 따라 설치한 현장 사례</small></span>
 </button>
 <button aria-label="노면 염수 분사 운영 크게 보기" class="gallery-card" onclick="openLightbox(1)">
-<img alt="노면 염수 분사 운영" loading="lazy" src="assets/images/case-02-road-spray.jpg"/>
+<img alt="노면 염수 분사 운영" loading="lazy" src="assets/embedded/abfd3d66b49ac37e.jpg"/>
 <span class="gallery-caption"><b>노면 염수 분사 운영</b><small>운영 중인 분사 노즐이 노면에 염수를 균일하게 살포하는 모습</small></span>
 </button>
 <button aria-label="도로 경계석 배관 시공 크게 보기" class="gallery-card" onclick="openLightbox(2)">
-<img alt="도로 경계석 배관 시공" loading="lazy" src="assets/images/case-03-curb-pipe.jpg"/>
+<img alt="도로 경계석 배관 시공" loading="lazy" src="assets/embedded/25b1989a2e926850.jpg"/>
 <span class="gallery-caption"><b>도로 경계석 배관 시공</b><small>도로 가장자리 경계석 구간에 배관과 노즐을 시공한 사례</small></span>
 </button>
 <button aria-label="중앙분리대 구간 설치 크게 보기" class="gallery-card" onclick="openLightbox(3)">
-<img alt="중앙분리대 구간 설치" loading="lazy" src="assets/images/case-04-median-installation.jpg"/>
+<img alt="중앙분리대 구간 설치" loading="lazy" src="assets/embedded/76f51a4ba0414ffc.jpg"/>
 <span class="gallery-caption"><b>중앙분리대 구간 설치</b><small>중앙분리대 구간에 염수분사 배관 라인을 설치하는 현장</small></span>
 </button>
-<button aria-label="현장 천공 작업 크게 보기" class="gallery-card" onclick="openLightbox(4)">
-<img alt="현장 천공 작업" loading="lazy" src="assets/images/case-05-drilling.jpg"/>
-<span class="gallery-caption"><b>현장 천공 작업</b><small>노즐 및 배관 고정을 위한 현장 천공 작업 모습</small></span>
+<button aria-label="코아 작업 크게 보기" class="gallery-card" onclick="openLightbox(4)">
+<img alt="코아 작업" loading="lazy" src="assets/embedded/180df2afeb1b16ba.png"/>
+<span class="gallery-caption"><b>코아 작업</b><small>분사노즐 고정을 위한 현장 코아 작업</small></span>
 </button>
 <button aria-label="분사 노즐 상세 크게 보기" class="gallery-card" onclick="openLightbox(5)">
-<img alt="분사 노즐 상세" loading="lazy" src="assets/images/case-06-nozzle-detail.jpg"/>
-<span class="gallery-caption"><b>분사 노즐 상세</b><small>노면 분사에 사용되는 노즐 설치 상세 모습</small></span>
+<img alt="분사 노즐 상세" loading="lazy" src="assets/embedded/7d3c02268b3d86a0.jpg"/>
+<span class="gallery-caption"><b>분사 노즐 상세</b><small>노면 분사에 사용되는 분사노즐 커버 설치</small></span>
 </button>
 <button aria-label="가드레일 구간 배관 크게 보기" class="gallery-card" onclick="openLightbox(6)">
-<img alt="가드레일 구간 배관" loading="lazy" src="assets/images/case-07-guardrail-pipe.jpg"/>
+<img alt="가드레일 구간 배관" loading="lazy" src="assets/embedded/5fe056f00133cb80.jpg"/>
 <span class="gallery-caption"><b>가드레일 구간 배관</b><small>가드레일을 따라 배관과 노즐을 설치한 현장 사례</small></span>
 </button>
 <button aria-label="중앙분리대 배관 라인 크게 보기" class="gallery-card" onclick="openLightbox(7)">
-<img alt="중앙분리대 배관 라인" loading="lazy" src="assets/images/case-08-median-pipeline.jpg"/>
+<img alt="중앙분리대 배관 라인" loading="lazy" src="assets/embedded/b4544f39d1d41abd.jpg"/>
 <span class="gallery-caption"><b>중앙분리대 배관 라인</b><small>중앙분리대 내부에 배관 라인을 구성한 현장 상세</small></span>
 </button>
 <button aria-label="하부 연결부 설치 크게 보기" class="gallery-card" onclick="openLightbox(8)">
-<img alt="하부 연결부 설치" loading="lazy" src="assets/images/case-09-lower-connector.jpg"/>
+<img alt="하부 연결부 설치" loading="lazy" src="assets/embedded/92891caecd9633b9.jpg"/>
 <span class="gallery-caption"><b>하부 연결부 설치</b><small>배관 하부 연결부와 분사라인 연결 상태를 보여주는 현장 사진</small></span>
 </button>
-<button aria-label="급커브 취약구간 적용 크게 보기" class="gallery-card" onclick="openLightbox(9)">
-<img alt="급커브 취약구간 적용" loading="lazy" src="assets/images/case-10-sharp-curve.jpg"/>
-<span class="gallery-caption"><b>급커브 취약구간 적용</b><small>급커브 및 결빙 취약구간에 적용한 설치 사례</small></span>
+<button aria-label="급커브(램프구간) 취약구간 적용 크게 보기" class="gallery-card" onclick="openLightbox(9)">
+<img alt="급커브(램프구간) 취약구간 적용" loading="lazy" src="assets/embedded/38d5d77a6c6c4e87.jpg"/>
+<span class="gallery-caption"><b>급커브(램프구간) 취약구간 적용</b><small>급커브(램프구간) 및 결빙 취약구간에 적용한 설치 사례</small></span>
 </button>
 <button aria-label="가드레일 연속 시공 크게 보기" class="gallery-card" onclick="openLightbox(10)">
-<img alt="가드레일 연속 시공" loading="lazy" src="assets/images/case-11-guardrail-continuous.jpg"/>
+<img alt="가드레일 연속 시공" loading="lazy" src="assets/embedded/296d450923757408.jpg"/>
 <span class="gallery-caption"><b>가드레일 연속 시공</b><small>가드레일 구간에 연속적으로 배관을 시공한 현장</small></span>
 </button>
 <button aria-label="도심 경사로 배관 설치 크게 보기" class="gallery-card" onclick="openLightbox(11)">
-<img alt="도심 경사로 배관 설치" loading="lazy" src="assets/images/case-12-urban-slope.jpg"/>
+<img alt="도심 경사로 배관 설치" loading="lazy" src="assets/embedded/44908ec558f383ec.jpg"/>
 <span class="gallery-caption"><b>도심 경사로 배관 설치</b><small>도심 경사로 구간에 배관과 노즐을 적용한 설치 사례</small></span>
 </button>
 <button aria-label="옹벽 구간 배관 시공 크게 보기" class="gallery-card" onclick="openLightbox(12)">
-<img alt="옹벽 구간 배관 시공" loading="lazy" src="assets/images/case-13-retaining-wall.webp"/>
-<span class="gallery-caption"><b>옹벽 구간 배관 시공</b><small>옹벽을 따라 염수분사 배관과 노즐을 설치한 현장</small></span>
+<img alt="옹벽 구간 배관 시공" loading="lazy" src="assets/embedded/f2cf8a3648e7c377.webp"/>
+<span class="gallery-caption"><b>옹벽 구간 배관 시공</b><small>경계석을 따라 주배관과 분사노즐 설치</small></span>
 </button>
 </div>
 <div class="clients">
@@ -420,7 +866,7 @@
 </div>
 </div>
 </section>
-<!-- 문의 -->
+<!-- [기본정보는 easy-edit.js에서 수정] 문의 -->
 <section class="contact" id="contact">
 <div class="wrap">
 <div class="contact-box">
@@ -452,6 +898,39 @@
 <div class="lightbox-title" id="lightboxTitle"></div>
 </div>
 </div>
-<script src="assets/js/main.js"></script>
+<script>
+(function(){
+  const cards = Array.from(document.querySelectorAll('.gallery-card'));
+  const box = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImg');
+  const title = document.getElementById('lightboxTitle');
+
+  window.openLightbox = function(index){
+    const card = cards[index];
+    if(!card || !box || !img) return;
+    const thumb = card.querySelector('img');
+    const caption = card.querySelector('.gallery-caption b');
+    img.src = thumb ? thumb.src : '';
+    img.alt = thumb ? thumb.alt : '';
+    if(title) title.textContent = caption ? caption.textContent : (thumb ? thumb.alt : '');
+    box.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeLightbox = function(event){
+    if(event && event.target && !event.target.classList.contains('lightbox') &&
+       !event.target.classList.contains('lightbox-close')) return;
+    if(box) box.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && box && box.classList.contains('open')){
+      box.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+})();
+</script>
 </body>
 </html>
